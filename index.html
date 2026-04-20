@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>明聖國小 ✦ 班級網頁</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --sky: #4AABE8;
@@ -25,510 +25,140 @@
     --bg: #F8FAFF;
     --white: #FFFFFF;
     --radius: 16px;
-    --shadow: 0 4px 20px rgba(74,171,232,0.12);
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans TC', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
 
-  body {
-    font-family: 'Noto Sans TC', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-  }
-
-  /* ── HEADER ── */
   header {
     background: linear-gradient(135deg, #4AABE8 0%, #2980C4 50%, #1A6EA8 100%);
-    padding: 0;
-    position: relative;
-    overflow: hidden;
+    padding: 0; position: relative; overflow: hidden;
   }
-
   .header-deco {
-    position: absolute;
-    inset: 0;
-    background-image:
-      radial-gradient(circle at 10% 20%, rgba(255,255,255,0.12) 0%, transparent 40%),
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle at 10% 20%, rgba(255,255,255,0.12) 0%, transparent 40%),
       radial-gradient(circle at 90% 80%, rgba(255,212,59,0.18) 0%, transparent 40%);
   }
-
   .header-inner {
-    position: relative;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 36px 24px 32px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
+    position: relative; max-width: 900px; margin: 0 auto;
+    padding: 36px 24px 32px; display: flex; align-items: center; gap: 20px;
   }
-
   .school-badge {
-    width: 68px;
-    height: 68px;
-    background: var(--sun);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    font-size: 32px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    width: 68px; height: 68px; background: var(--sun); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 32px; box-shadow: 0 4px 16px rgba(0,0,0,0.2);
   }
-
   .header-text { flex: 1; }
+  .header-school { font-size: 14px; color: rgba(255,255,255,0.8); letter-spacing: 0.06em; margin-bottom: 4px; }
+  .header-class { font-size: 32px; font-weight: 700; color: #fff; line-height: 1.1; }
+  .header-subtitle { font-size: 14px; color: rgba(255,255,255,0.75); margin-top: 6px; }
 
-  .header-school {
-    font-size: 14px;
-    color: rgba(255,255,255,0.8);
-    letter-spacing: 0.06em;
-    margin-bottom: 4px;
-  }
-
-  .header-class {
-    font-size: 32px;
-    font-weight: 700;
-    color: #fff;
-    line-height: 1.1;
-    letter-spacing: 0.02em;
-  }
-
-  .header-subtitle {
-    font-size: 14px;
-    color: rgba(255,255,255,0.75);
-    margin-top: 6px;
-  }
-
-  /* ── NAV ── */
   nav {
-    background: var(--white);
-    border-bottom: 2px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    background: var(--white); border-bottom: 2px solid var(--border);
+    position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   }
-
-  .nav-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
+  .nav-inner { max-width: 900px; margin: 0 auto; display: flex; overflow-x: auto; scrollbar-width: none; }
   .nav-inner::-webkit-scrollbar { display: none; }
-
   nav a {
-    padding: 14px 20px;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text-muted);
-    text-decoration: none;
-    white-space: nowrap;
-    border-bottom: 3px solid transparent;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 6px;
+    padding: 14px 20px; font-size: 14px; font-weight: 500; color: var(--text-muted);
+    text-decoration: none; white-space: nowrap; border-bottom: 3px solid transparent;
+    transition: all 0.2s; display: flex; align-items: center; gap: 6px;
   }
-
   nav a:hover { color: var(--sky); }
-  nav a.active {
-    color: var(--sky);
-    border-bottom-color: var(--sky);
-  }
+  nav a.active { color: var(--sky); border-bottom-color: var(--sky); }
 
-  /* ── MAIN ── */
-  main {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 28px 24px 60px;
-    display: grid;
-    grid-template-columns: 1fr 340px;
-    gap: 24px;
-  }
+  main { max-width: 900px; margin: 0 auto; padding: 28px 24px 60px; display: grid; grid-template-columns: 1fr 340px; gap: 24px; }
+  @media (max-width: 700px) { main { grid-template-columns: 1fr; } .header-class { font-size: 24px; } }
 
-  @media (max-width: 700px) {
-    main { grid-template-columns: 1fr; }
-    .header-class { font-size: 24px; }
-  }
+  .section-title { font-size: 16px; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; }
+  .card { background: var(--white); border-radius: var(--radius); border: 1.5px solid var(--border); padding: 20px; margin-bottom: 20px; }
 
-  /* ── SECTION TITLES ── */
-  .section-title {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--text);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 14px;
-  }
-
-  .section-icon {
-    width: 28px;
-    height: 28px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 15px;
-  }
-
-  /* ── CARD ── */
-  .card {
-    background: var(--white);
-    border-radius: var(--radius);
-    border: 1.5px solid var(--border);
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-
-  /* ── ANNOUNCEMENTS ── */
-  .notice-item {
-    padding: 14px 16px;
-    border-radius: 10px;
-    border-left: 4px solid;
-    margin-bottom: 10px;
-    position: relative;
-  }
-
+  /* 公告 */
+  .notice-item { padding: 14px 16px; border-radius: 10px; border-left: 4px solid; margin-bottom: 10px; }
   .notice-item:last-child { margin-bottom: 0; }
-  .notice-item.sky { background: var(--sky-light); border-color: var(--sky); }
   .notice-item.coral { background: var(--coral-light); border-color: var(--coral); }
+  .notice-item.sky { background: var(--sky-light); border-color: var(--sky); }
   .notice-item.sun { background: var(--sun-light); border-color: var(--sun); }
   .notice-item.mint { background: var(--mint-light); border-color: var(--mint); }
-
-  .notice-badge {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 20px;
-    margin-bottom: 5px;
-    letter-spacing: 0.03em;
-  }
-
-  .notice-item.sky .notice-badge { background: var(--sky); color: #fff; }
+  .notice-badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-bottom: 5px; }
   .notice-item.coral .notice-badge { background: var(--coral); color: #fff; }
+  .notice-item.sky .notice-badge { background: var(--sky); color: #fff; }
   .notice-item.sun .notice-badge { background: #E0A800; color: #fff; }
   .notice-item.mint .notice-badge { background: var(--mint); color: #fff; }
+  .notice-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+  .notice-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  .notice-date { font-size: 11px; color: var(--text-muted); margin-top: 5px; }
 
-  .notice-title {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 3px;
-  }
-
-  .notice-desc {
-    font-size: 13px;
-    color: var(--text-muted);
-    line-height: 1.6;
-  }
-
-  .notice-date {
-    font-size: 11px;
-    color: var(--text-muted);
-    margin-top: 5px;
-  }
-
-  /* ── HOMEWORK ── */
-  .hw-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border);
-  }
-
+  /* 作業 */
+  .hw-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); }
   .hw-item:last-child { border-bottom: none; padding-bottom: 0; }
-
-  .hw-subject {
-    flex-shrink: 0;
-    font-size: 12px;
-    font-weight: 700;
-    padding: 3px 10px;
-    border-radius: 20px;
-    min-width: 56px;
-    text-align: center;
-  }
-
+  .hw-subject { flex-shrink: 0; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 20px; min-width: 56px; text-align: center; }
   .hw-subject.math { background: #FFF0F0; color: #E53E3E; }
   .hw-subject.chinese { background: #FFF5E0; color: #C05621; }
   .hw-subject.english { background: #EBF8FF; color: #2B6CB0; }
   .hw-subject.nature { background: #F0FFF4; color: #276749; }
   .hw-subject.social { background: #FAF5FF; color: #6B46C1; }
+  .hw-subject.other { background: #F5F5F5; color: #555; }
+  .hw-text { flex: 1; font-size: 13px; color: var(--text); line-height: 1.6; }
+  .hw-due { flex-shrink: 0; font-size: 11px; color: var(--text-muted); white-space: nowrap; margin-top: 2px; }
 
-  .hw-text {
-    flex: 1;
-    font-size: 13px;
-    color: var(--text);
-    line-height: 1.6;
-  }
-
-  .hw-due {
-    flex-shrink: 0;
-    font-size: 11px;
-    color: var(--text-muted);
-    white-space: nowrap;
-    margin-top: 2px;
-  }
-
-  /* ── TIMETABLE ── */
-  .timetable-wrap {
-    overflow-x: auto;
-    border-radius: 10px;
-    border: 1.5px solid var(--border);
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 12px;
-  }
-
-  thead th {
-    background: var(--sky);
-    color: #fff;
-    padding: 9px 6px;
-    text-align: center;
-    font-weight: 700;
-    font-size: 12px;
-  }
-
-  thead th:first-child { background: var(--sky-dark); border-radius: 10px 0 0 0; }
-
+  /* 課程表 */
+  .timetable-wrap { overflow-x: auto; border-radius: 10px; border: 1.5px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  thead th { background: var(--sky); color: #fff; padding: 9px 6px; text-align: center; font-weight: 700; font-size: 12px; }
+  thead th:first-child { background: var(--sky-dark); }
   tbody tr:nth-child(even) { background: var(--sky-light); }
+  td { padding: 9px 6px; text-align: center; border-bottom: 1px solid var(--border); color: var(--text); font-size: 12px; }
+  td:first-child { background: var(--sky-light); font-weight: 700; color: var(--sky-dark); white-space: nowrap; }
+  .highlight-cell { background: #FFF5E0 !important; color: var(--coral); font-weight: 700; }
 
-  td {
-    padding: 9px 6px;
-    text-align: center;
-    border-bottom: 1px solid var(--border);
-    color: var(--text);
-    font-size: 12px;
-  }
-
-  td:first-child {
-    background: var(--sky-light);
-    font-weight: 700;
-    color: var(--sky-dark);
-    white-space: nowrap;
-  }
-
-  .highlight-cell {
-    background: #FFF5E0 !important;
-    color: var(--coral);
-    font-weight: 700;
-    border-radius: 4px;
-  }
-
-  /* ── SIDEBAR ── */
-  .sidebar {}
-
-  /* ── TEACHER CARD ── */
+  /* 老師聯絡 */
   .teacher-card {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: var(--radius);
-    padding: 20px;
-    color: #fff;
-    margin-bottom: 20px;
-    position: relative;
-    overflow: hidden;
+    border-radius: var(--radius); padding: 20px; color: #fff; margin-bottom: 20px; position: relative; overflow: hidden;
   }
-
-  .teacher-card::before {
-    content: '';
-    position: absolute;
-    top: -20px; right: -20px;
-    width: 100px; height: 100px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 50%;
-  }
-
-  .teacher-avatar {
-    width: 52px;
-    height: 52px;
-    background: rgba(255,255,255,0.25);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    margin-bottom: 10px;
-    border: 2px solid rgba(255,255,255,0.4);
-  }
-
-  .teacher-name {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 2px;
-  }
-
-  .teacher-role {
-    font-size: 12px;
-    opacity: 0.8;
-    margin-bottom: 14px;
-  }
-
+  .teacher-card::before { content: ''; position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%; }
+  .teacher-avatar { width: 52px; height: 52px; background: rgba(255,255,255,0.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 10px; border: 2px solid rgba(255,255,255,0.4); }
+  .teacher-name { font-size: 18px; font-weight: 700; margin-bottom: 2px; }
+  .teacher-role { font-size: 12px; opacity: 0.8; margin-bottom: 14px; }
   .teacher-contacts { display: flex; flex-direction: column; gap: 6px; }
+  .contact-row { display: flex; align-items: center; gap: 8px; font-size: 12px; background: rgba(255,255,255,0.15); padding: 7px 10px; border-radius: 8px; }
 
-  .contact-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    background: rgba(255,255,255,0.15);
-    padding: 7px 10px;
-    border-radius: 8px;
-  }
-
-  /* ── CALENDAR ── */
-  .cal-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 3px;
-  }
-
-  .cal-day-header {
-    text-align: center;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--text-muted);
-    padding: 4px 0;
-  }
-
-  .cal-day {
-    aspect-ratio: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    color: var(--text-muted);
-    transition: background 0.15s;
-  }
-
-  .cal-day:hover { background: var(--sky-light); color: var(--sky); }
+  /* 行事曆 */
+  .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
+  .cal-day-header { text-align: center; font-size: 11px; font-weight: 700; color: var(--text-muted); padding: 4px 0; }
+  .cal-day { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-size: 12px; border-radius: 6px; color: var(--text-muted); }
   .cal-day.other-month { color: var(--border); }
-  .cal-day.today {
-    background: var(--sky);
-    color: #fff;
-    font-weight: 700;
-  }
-
-  .cal-day.has-event { position: relative; color: var(--text); font-weight: 700; }
-  .cal-day.has-event::after {
-    content: '';
-    position: absolute;
-    bottom: 2px;
-    width: 4px;
-    height: 4px;
-    background: var(--coral);
-    border-radius: 50%;
-  }
-
-  .cal-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 12px;
-  }
-
+  .cal-day.today { background: var(--sky); color: #fff; font-weight: 700; }
+  .cal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
   .cal-month { font-size: 14px; font-weight: 700; }
-
-  .cal-nav {
-    background: none;
-    border: 1.5px solid var(--border);
-    border-radius: 6px;
-    width: 26px;
-    height: 26px;
-    cursor: pointer;
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-muted);
-    transition: all 0.15s;
-  }
-
+  .cal-nav { background: none; border: 1.5px solid var(--border); border-radius: 6px; width: 26px; height: 26px; cursor: pointer; font-size: 12px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); }
   .cal-nav:hover { border-color: var(--sky); color: var(--sky); }
 
-  /* ── EVENTS ── */
-  .event-dot {
-    display: inline-block;
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    margin-right: 6px;
-    vertical-align: middle;
-  }
-
-  .event-row {
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    padding: 7px 0;
-    border-bottom: 1px dashed var(--border);
-    gap: 6px;
-  }
-
+  /* 活動 */
+  .event-row { display: flex; align-items: center; font-size: 12px; padding: 7px 0; border-bottom: 1px dashed var(--border); gap: 6px; }
   .event-row:last-child { border-bottom: none; }
+  .event-date { min-width: 32px; font-weight: 700; font-size: 11px; color: var(--text-muted); }
+  .event-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 
-  .event-date {
-    min-width: 32px;
-    font-weight: 700;
-    font-size: 11px;
-    color: var(--text-muted);
-  }
+  /* 相片 */
+  .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .photo-placeholder { aspect-ratio: 1; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; transition: transform 0.2s; }
+  .photo-placeholder:hover { transform: scale(1.04); }
+  .p1{background:linear-gradient(135deg,#4AABE8,#2980C4)}.p2{background:linear-gradient(135deg,#38D9A9,#0CA678)}.p3{background:linear-gradient(135deg,#FF7043,#E64A19)}.p4{background:linear-gradient(135deg,#9775FA,#7048E8)}.p5{background:linear-gradient(135deg,#FFD43B,#F59F00)}.p6{background:linear-gradient(135deg,#F06595,#C2255C)}
 
-  /* ── PHOTO WALL ── */
-  .photo-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-  }
+  /* Loading */
+  .loading { text-align: center; padding: 20px; color: var(--text-muted); font-size: 13px; }
+  .loading-dot { display: inline-block; width: 6px; height: 6px; background: var(--sky); border-radius: 50%; margin: 0 2px; animation: bounce 1.2s infinite; }
+  .loading-dot:nth-child(2) { animation-delay: 0.2s; }
+  .loading-dot:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes bounce { 0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-6px)} }
 
-  .photo-placeholder {
-    aspect-ratio: 1;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.8);
-    cursor: pointer;
-    transition: transform 0.2s, opacity 0.2s;
-  }
-
-  .photo-placeholder:hover { transform: scale(1.04); opacity: 0.9; }
-  .p1 { background: linear-gradient(135deg, #4AABE8, #2980C4); }
-  .p2 { background: linear-gradient(135deg, #38D9A9, #0CA678); }
-  .p3 { background: linear-gradient(135deg, #FF7043, #E64A19); }
-  .p4 { background: linear-gradient(135deg, #9775FA, #7048E8); }
-  .p5 { background: linear-gradient(135deg, #FFD43B, #F59F00); }
-  .p6 { background: linear-gradient(135deg, #F06595, #C2255C); }
-
-  /* ── FOOTER ── */
-  footer {
-    text-align: center;
-    padding: 24px;
-    font-size: 12px;
-    color: var(--text-muted);
-    border-top: 1px solid var(--border);
-    background: var(--white);
-  }
-
-  /* ── SCROLLBAR ── */
-  ::-webkit-scrollbar { width: 6px; height: 6px; }
-  ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  footer { text-align: center; padding: 24px; font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border); background: var(--white); }
 </style>
 </head>
 <body>
 
-<!-- ── HEADER ── -->
 <header>
   <div class="header-deco"></div>
   <div class="header-inner">
@@ -541,7 +171,6 @@
   </div>
 </header>
 
-<!-- ── NAV ── -->
 <nav>
   <div class="nav-inner">
     <a href="#notices" class="active">📢 最新公告</a>
@@ -552,168 +181,57 @@
   </div>
 </nav>
 
-<!-- ── MAIN ── -->
 <main>
-
-  <!-- LEFT COLUMN -->
   <div>
 
-    <!-- 最新公告 -->
+    <!-- 公告 -->
     <section id="notices">
       <div class="section-title">
-        <span class="section-icon" style="background:#EBF5FE;">📢</span>
-        最新公告
+        <span class="section-icon" style="background:#EBF5FE;">📢</span>最新公告
       </div>
-      <div class="card">
-
-        <div class="notice-item coral">
-          <div class="notice-badge">緊急通知</div>
-          <div class="notice-title">113學年度第二學期期中考</div>
-          <div class="notice-desc">考試範圍請參閱各科複習單，請同學確認行事曆並提早準備。</div>
-          <div class="notice-date">2025/04/18 ｜ 陳老師</div>
-        </div>
-
-        <div class="notice-item sky">
-          <div class="notice-badge">活動通知</div>
-          <div class="notice-title">校外教學－台北市立天文科學教育館</div>
-          <div class="notice-desc">時間：5/2（五）出發，請於當天 7:50 到校門口集合，記得帶便當與水壺。</div>
-          <div class="notice-date">2025/04/15 ｜ 陳老師</div>
-        </div>
-
-        <div class="notice-item sun">
-          <div class="notice-badge">溫馨提醒</div>
-          <div class="notice-title">請假須知</div>
-          <div class="notice-desc">若需請假，請提前告知或請家長致電學校，病假需附診斷證明。</div>
-          <div class="notice-date">2025/04/10 ｜ 陳老師</div>
-        </div>
-
-        <div class="notice-item mint">
-          <div class="notice-badge">好消息</div>
-          <div class="notice-title">恭喜！本班榮獲整潔秩序競賽第一名 🎉</div>
-          <div class="notice-desc">感謝全班同學的努力，讓我們繼續保持！</div>
-          <div class="notice-date">2025/04/08 ｜ 陳老師</div>
-        </div>
-
+      <div class="card" id="notices-content">
+        <div class="loading"><span class="loading-dot"></span><span class="loading-dot"></span><span class="loading-dot"></span></div>
       </div>
     </section>
 
-    <!-- 本週作業 -->
+    <!-- 作業 -->
     <section id="homework">
       <div class="section-title">
-        <span class="section-icon" style="background:#FFF5E0;">📚</span>
-        本週作業
-        <span style="font-size:12px;font-weight:400;color:var(--text-muted);">4/21 – 4/25</span>
+        <span class="section-icon" style="background:#FFF5E0;">📚</span>本週作業
       </div>
-      <div class="card">
-
-        <div class="hw-item">
-          <span class="hw-subject chinese">國語</span>
-          <div class="hw-text">第十二課生字練習一遍，預習第十三課課文</div>
-          <span class="hw-due">週二繳</span>
-        </div>
-        <div class="hw-item">
-          <span class="hw-subject math">數學</span>
-          <div class="hw-text">習作第 48–50 頁，完成後請家長簽名</div>
-          <span class="hw-due">週三繳</span>
-        </div>
-        <div class="hw-item">
-          <span class="hw-subject english">英語</span>
-          <div class="hw-text">Lesson 7 單字抄寫三遍，完成課本 p.62 練習</div>
-          <span class="hw-due">週四繳</span>
-        </div>
-        <div class="hw-item">
-          <span class="hw-subject nature">自然</span>
-          <div class="hw-text">閱讀課本第五章，完成課後問題 1–4 題</div>
-          <span class="hw-due">週五繳</span>
-        </div>
-        <div class="hw-item">
-          <span class="hw-subject social">社會</span>
-          <div class="hw-text">收集一則與台灣歷史相關的新聞，下週分享</div>
-          <span class="hw-due">下週一</span>
-        </div>
-
+      <div class="card" id="homework-content">
+        <div class="loading"><span class="loading-dot"></span><span class="loading-dot"></span><span class="loading-dot"></span></div>
       </div>
     </section>
 
-    <!-- 課程表 -->
+    <!-- 課程表（靜態） -->
     <section id="timetable">
       <div class="section-title">
-        <span class="section-icon" style="background:#E6FAF5;">📅</span>
-        每週課程表
+        <span class="section-icon" style="background:#E6FAF5;">📅</span>每週課程表
       </div>
       <div class="card" style="padding:16px;">
         <div class="timetable-wrap">
           <table>
             <thead>
-              <tr>
-                <th>節次</th>
-                <th>週一</th>
-                <th>週二</th>
-                <th>週三</th>
-                <th>週四</th>
-                <th>週五</th>
-              </tr>
+              <tr><th>節次</th><th>週一</th><th>週二</th><th>週三</th><th>週四</th><th>週五</th></tr>
             </thead>
             <tbody>
-              <tr>
-                <td>第一節<br><span style="font-size:10px;color:var(--text-muted);">08:10</span></td>
-                <td>國語</td>
-                <td>數學</td>
-                <td>體育</td>
-                <td>國語</td>
-                <td>英語</td>
-              </tr>
-              <tr>
-                <td>第二節<br><span style="font-size:10px;color:var(--text-muted);">09:00</span></td>
-                <td>數學</td>
-                <td>國語</td>
-                <td>健康</td>
-                <td>自然</td>
-                <td>數學</td>
-              </tr>
-              <tr>
-                <td>第三節<br><span style="font-size:10px;color:var(--text-muted);">09:50</span></td>
-                <td>英語</td>
-                <td>社會</td>
-                <td>國語</td>
-                <td>數學</td>
-                <td>社會</td>
-              </tr>
-              <tr>
-                <td>第四節<br><span style="font-size:10px;color:var(--text-muted);">10:40</span></td>
-                <td>自然</td>
-                <td>英語</td>
-                <td>電腦</td>
-                <td class="highlight-cell">彈性</td>
-                <td>美術</td>
-              </tr>
-              <tr>
-                <td>第五節<br><span style="font-size:10px;color:var(--text-muted);">13:10</span></td>
-                <td>社會</td>
-                <td>音樂</td>
-                <td class="highlight-cell">綜合</td>
-                <td>英語</td>
-                <td>體育</td>
-              </tr>
-              <tr>
-                <td>第六節<br><span style="font-size:10px;color:var(--text-muted);">14:00</span></td>
-                <td>美術</td>
-                <td class="highlight-cell">班會</td>
-                <td>—</td>
-                <td>音樂</td>
-                <td>閱讀</td>
-              </tr>
+              <tr><td>第一節<br><span style="font-size:10px;color:var(--text-muted)">08:10</span></td><td>國語</td><td>數學</td><td>體育</td><td>國語</td><td>英語</td></tr>
+              <tr><td>第二節<br><span style="font-size:10px;color:var(--text-muted)">09:00</span></td><td>數學</td><td>國語</td><td>健康</td><td>自然</td><td>數學</td></tr>
+              <tr><td>第三節<br><span style="font-size:10px;color:var(--text-muted)">09:50</span></td><td>英語</td><td>社會</td><td>國語</td><td>數學</td><td>社會</td></tr>
+              <tr><td>第四節<br><span style="font-size:10px;color:var(--text-muted)">10:40</span></td><td>自然</td><td>英語</td><td>電腦</td><td class="highlight-cell">彈性</td><td>美術</td></tr>
+              <tr><td>第五節<br><span style="font-size:10px;color:var(--text-muted)">13:10</span></td><td>社會</td><td>音樂</td><td class="highlight-cell">綜合</td><td>英語</td><td>體育</td></tr>
+              <tr><td>第六節<br><span style="font-size:10px;color:var(--text-muted)">14:00</span></td><td>美術</td><td class="highlight-cell">班會</td><td>—</td><td>音樂</td><td>閱讀</td></tr>
             </tbody>
           </table>
         </div>
       </div>
     </section>
 
-    <!-- 班級相片 -->
+    <!-- 相片 -->
     <section id="photos">
       <div class="section-title">
-        <span class="section-icon" style="background:#F3EEFF;">📷</span>
-        班級相片
+        <span class="section-icon" style="background:#F3EEFF;">📷</span>班級相片
       </div>
       <div class="card">
         <div class="photo-grid">
@@ -724,182 +242,181 @@
           <div class="photo-placeholder p5">🏆</div>
           <div class="photo-placeholder p6">🎉</div>
         </div>
-        <p style="font-size:12px;color:var(--text-muted);margin-top:12px;text-align:center;">
-          點擊相片即可放大 ｜ 更多照片請見班級 Google 相簿
-        </p>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:12px;text-align:center;">更多照片請見班級 Google 相簿</p>
       </div>
     </section>
 
   </div>
 
-  <!-- RIGHT COLUMN (SIDEBAR) -->
-  <div class="sidebar">
+  <!-- 側邊欄 -->
+  <div>
 
-    <!-- 老師聯絡 -->
     <section id="contact">
       <div class="section-title">
-        <span class="section-icon" style="background:#F3EEFF;">👩‍🏫</span>
-        聯絡老師
+        <span class="section-icon" style="background:#F3EEFF;">👩‍🏫</span>聯絡老師
       </div>
       <div class="teacher-card">
         <div class="teacher-avatar">👩‍🏫</div>
         <div class="teacher-name">陳小明 老師</div>
         <div class="teacher-role">六年 X 班班導師 ｜ 自然科任</div>
         <div class="teacher-contacts">
-          <div class="contact-row">
-            <span>📧</span>
-            <span>teacher@msps.tp.edu.tw</span>
-          </div>
-          <div class="contact-row">
-            <span>📞</span>
-            <span>(02) 2345-6789 #215</span>
-          </div>
-          <div class="contact-row">
-            <span>🕐</span>
-            <span>接聽時間：週一至週五 7:40–8:10</span>
-          </div>
+          <div class="contact-row">📧 teacher@msps.tp.edu.tw</div>
+          <div class="contact-row">📞 (02) 2345-6789 #215</div>
+          <div class="contact-row">🕐 接聽時間：週一至週五 7:40–8:10</div>
         </div>
       </div>
     </section>
 
-    <!-- 行事曆 -->
     <div class="section-title">
       <span class="section-icon" style="background:#EBF5FE;">🗓</span>
-      四月 行事曆
+      <span id="calTitle">行事曆</span>
     </div>
     <div class="card" style="margin-bottom:20px;">
       <div class="cal-header">
         <button class="cal-nav" onclick="prevMonth()">◀</button>
-        <span class="cal-month" id="calTitle">2025 年 4 月</span>
+        <span class="cal-month" id="calMonthLabel"></span>
         <button class="cal-nav" onclick="nextMonth()">▶</button>
       </div>
       <div class="cal-grid" id="calGrid">
-        <div class="cal-day-header">日</div>
-        <div class="cal-day-header">一</div>
-        <div class="cal-day-header">二</div>
-        <div class="cal-day-header">三</div>
-        <div class="cal-day-header">四</div>
-        <div class="cal-day-header">五</div>
+        <div class="cal-day-header">日</div><div class="cal-day-header">一</div>
+        <div class="cal-day-header">二</div><div class="cal-day-header">三</div>
+        <div class="cal-day-header">四</div><div class="cal-day-header">五</div>
         <div class="cal-day-header">六</div>
       </div>
     </div>
 
-    <!-- 近期活動 -->
     <div class="section-title">
-      <span class="section-icon" style="background:#FFF0EB;">🎯</span>
-      近期重要活動
+      <span class="section-icon" style="background:#FFF0EB;">🎯</span>近期重要活動
     </div>
-    <div class="card">
-      <div class="event-row">
-        <span class="event-date">4/25</span>
-        <span class="event-dot" style="background:#FF7043;"></span>
-        <span style="font-size:13px;">國語期中測驗</span>
-      </div>
-      <div class="event-row">
-        <span class="event-date">4/28</span>
-        <span class="event-dot" style="background:#4AABE8;"></span>
-        <span style="font-size:13px;">數學段考</span>
-      </div>
-      <div class="event-row">
-        <span class="event-date">5/2</span>
-        <span class="event-dot" style="background:#38D9A9;"></span>
-        <span style="font-size:13px;">校外教學（天文館）</span>
-      </div>
-      <div class="event-row">
-        <span class="event-date">5/9</span>
-        <span class="event-dot" style="background:#9775FA;"></span>
-        <span style="font-size:13px;">母親節感恩活動</span>
-      </div>
-      <div class="event-row">
-        <span class="event-date">5/16</span>
-        <span class="event-dot" style="background:#FFD43B;"></span>
-        <span style="font-size:13px;">運動會預備會議</span>
-      </div>
+    <div class="card" id="events-content">
+      <div class="loading"><span class="loading-dot"></span><span class="loading-dot"></span><span class="loading-dot"></span></div>
     </div>
 
   </div>
-
 </main>
 
-<!-- ── FOOTER ── -->
 <footer>
   <p>© 113 學年度 明聖國小 六年 X 班 ｜ 班導師：陳老師</p>
-  <p style="margin-top:4px;">最後更新：2025/04/20 ｜ 如有問題請聯絡學校（02）2345-6789</p>
+  <p style="margin-top:4px;">如有問題請聯絡學校（02）2345-6789</p>
 </footer>
 
 <script>
-  let currentYear = 2025;
-  let currentMonth = 3;
+const SHEET_ID = '11zI7HQ6Ouuvu-bl-OMQaFXclpALIToP6hkkTlWQ2BbY';
 
-  const events = {
-    '2025-3-25': 'exam',
-    '2025-3-28': 'exam',
-    '2025-4-2': 'event',
-  };
+function sheetURL(sheetName) {
+  return `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(sheetName)}`;
+}
 
-  function buildCalendar(year, month) {
-    const months = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
-    document.getElementById('calTitle').textContent = `${year} 年 ${months[month]}`;
-
-    const grid = document.getElementById('calGrid');
-    const headers = Array.from(grid.querySelectorAll('.cal-day-header'));
-    grid.innerHTML = '';
-    headers.forEach(h => grid.appendChild(h));
-
-    const today = new Date();
-    const firstDay = new Date(year, month, 1).getDay();
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
-    const prevDays = new Date(year, month, 0).getDate();
-
-    for (let i = 0; i < firstDay; i++) {
-      const d = document.createElement('div');
-      d.className = 'cal-day other-month';
-      d.textContent = prevDays - firstDay + 1 + i;
-      grid.appendChild(d);
-    }
-
-    for (let d = 1; d <= daysInMonth; d++) {
-      const el = document.createElement('div');
-      el.className = 'cal-day';
-      el.textContent = d;
-      const key = `${year}-${month}-${d}`;
-      if (today.getFullYear() === year && today.getMonth() === month && today.getDate() === d) {
-        el.classList.add('today');
-      }
-      if (events[key]) el.classList.add('has-event');
-      grid.appendChild(el);
-    }
-
-    const remaining = (7 - (firstDay + daysInMonth) % 7) % 7;
-    for (let d = 1; d <= remaining; d++) {
-      const el = document.createElement('div');
-      el.className = 'cal-day other-month';
-      el.textContent = d;
-      grid.appendChild(el);
-    }
-  }
-
-  function prevMonth() {
-    currentMonth--;
-    if (currentMonth < 0) { currentMonth = 11; currentYear--; }
-    buildCalendar(currentYear, currentMonth);
-  }
-
-  function nextMonth() {
-    currentMonth++;
-    if (currentMonth > 11) { currentMonth = 0; currentYear++; }
-    buildCalendar(currentYear, currentMonth);
-  }
-
-  buildCalendar(currentYear, currentMonth);
-
-  document.querySelectorAll('nav a').forEach(a => {
-    a.addEventListener('click', function() {
-      document.querySelectorAll('nav a').forEach(x => x.classList.remove('active'));
-      this.classList.add('active');
-    });
+function parseGViz(text) {
+  const json = JSON.parse(text.replace(/^[^(]+\(/, '').replace(/\);?\s*$/, ''));
+  const cols = json.table.cols.map(c => c.label);
+  return json.table.rows.map(row => {
+    const obj = {};
+    row.c.forEach((cell, i) => { obj[cols[i]] = cell ? (cell.f || cell.v || '') : ''; });
+    return obj;
   });
-</script>
+}
 
+async function fetchSheet(name) {
+  const res = await fetch(sheetURL(name));
+  const text = await res.text();
+  return parseGViz(text);
+}
+
+const typeLabel = { coral:'緊急通知', sky:'活動通知', sun:'溫馨提醒', mint:'好消息' };
+const subjectClass = { '國語':'chinese','數學':'math','英語':'english','自然':'nature','社會':'social' };
+const dotColors = ['#FF7043','#4AABE8','#38D9A9','#9775FA','#FFD43B','#F06595'];
+
+async function loadNotices() {
+  try {
+    const rows = await fetchSheet('公告');
+    const el = document.getElementById('notices-content');
+    if (!rows.length) { el.innerHTML = '<p style="font-size:13px;color:var(--text-muted);text-align:center;">目前沒有公告</p>'; return; }
+    el.innerHTML = rows.map(r => `
+      <div class="notice-item ${r['類型'] || 'sky'}">
+        <div class="notice-badge">${typeLabel[r['類型']] || '公告'}</div>
+        <div class="notice-title">${r['標題'] || ''}</div>
+        <div class="notice-desc">${r['內容'] || ''}</div>
+        <div class="notice-date">${r['日期'] || ''}</div>
+      </div>`).join('');
+  } catch(e) {
+    document.getElementById('notices-content').innerHTML = '<p style="font-size:13px;color:#e53e3e;text-align:center;">⚠️ 讀取失敗，請確認試算表已發布到網路</p>';
+  }
+}
+
+async function loadHomework() {
+  try {
+    const rows = await fetchSheet('作業');
+    const el = document.getElementById('homework-content');
+    if (!rows.length) { el.innerHTML = '<p style="font-size:13px;color:var(--text-muted);text-align:center;">本週沒有作業 🎉</p>'; return; }
+    el.innerHTML = rows.map(r => `
+      <div class="hw-item">
+        <span class="hw-subject ${subjectClass[r['科目']] || 'other'}">${r['科目'] || ''}</span>
+        <div class="hw-text">${r['內容'] || ''}</div>
+        <span class="hw-due">${r['截止'] || ''}</span>
+      </div>`).join('');
+  } catch(e) {
+    document.getElementById('homework-content').innerHTML = '<p style="font-size:13px;color:#e53e3e;text-align:center;">⚠️ 讀取失敗，請確認試算表已發布到網路</p>';
+  }
+}
+
+async function loadEvents() {
+  try {
+    const rows = await fetchSheet('活動');
+    const el = document.getElementById('events-content');
+    if (!rows.length) { el.innerHTML = '<p style="font-size:13px;color:var(--text-muted);text-align:center;">目前沒有活動</p>'; return; }
+    el.innerHTML = rows.map((r, i) => `
+      <div class="event-row">
+        <span class="event-date">${r['日期'] || ''}</span>
+        <span class="event-dot" style="background:${dotColors[i % dotColors.length]}"></span>
+        <span style="font-size:13px;">${r['活動名稱'] || ''}</span>
+      </div>`).join('');
+  } catch(e) {
+    document.getElementById('events-content').innerHTML = '<p style="font-size:13px;color:#e53e3e;text-align:center;">⚠️ 讀取失敗</p>';
+  }
+}
+
+// 行事曆
+let cy = new Date().getFullYear(), cm = new Date().getMonth();
+const months = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+
+function buildCalendar(y, m) {
+  document.getElementById('calMonthLabel').textContent = `${y} 年 ${months[m]}`;
+  const grid = document.getElementById('calGrid');
+  const headers = Array.from(grid.querySelectorAll('.cal-day-header'));
+  grid.innerHTML = '';
+  headers.forEach(h => grid.appendChild(h));
+  const today = new Date();
+  const firstDay = new Date(y, m, 1).getDay();
+  const daysInMonth = new Date(y, m + 1, 0).getDate();
+  const prev = new Date(y, m, 0).getDate();
+  for (let i = 0; i < firstDay; i++) {
+    const d = document.createElement('div'); d.className = 'cal-day other-month'; d.textContent = prev - firstDay + 1 + i; grid.appendChild(d);
+  }
+  for (let d = 1; d <= daysInMonth; d++) {
+    const el = document.createElement('div'); el.className = 'cal-day'; el.textContent = d;
+    if (today.getFullYear()===y && today.getMonth()===m && today.getDate()===d) el.classList.add('today');
+    grid.appendChild(el);
+  }
+  const rem = (7 - (firstDay + daysInMonth) % 7) % 7;
+  for (let d = 1; d <= rem; d++) {
+    const el = document.createElement('div'); el.className = 'cal-day other-month'; el.textContent = d; grid.appendChild(el);
+  }
+}
+function prevMonth() { cm--; if(cm<0){cm=11;cy--;} buildCalendar(cy,cm); }
+function nextMonth() { cm++; if(cm>11){cm=0;cy++;} buildCalendar(cy,cm); }
+
+buildCalendar(cy, cm);
+loadNotices();
+loadHomework();
+loadEvents();
+
+document.querySelectorAll('nav a').forEach(a => {
+  a.addEventListener('click', function() {
+    document.querySelectorAll('nav a').forEach(x => x.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+</script>
 </body>
 </html>
