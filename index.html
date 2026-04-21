@@ -281,25 +281,12 @@ if (!SHEET_ID) {
   init();
 }
 
-function sheetURL(name) {
-  return `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(name)}`;
-}
-
-function parseGViz(text) {
-  const json = JSON.parse(text.replace(/^[^(]+\(/,'').replace(/\);?\s*$/,''));
-  const cols = json.table.cols.map(c => c.label);
-  return json.table.rows
-    .filter(row => row.c && row.c.some(c => c && (c.v || c.f)))
-    .map(row => {
-      const obj = {};
-      row.c.forEach((cell, i) => { obj[cols[i]] = cell ? (cell.f || cell.v || '') : ''; });
-      return obj;
-    });
-}
+const API_URL = 'https://script.google.com/a/macros/go.msps.tp.edu.tw/s/AKfycbxucgQjhMm0q8nd2GpxnaiB02NbX3scTDA-bQoCjFhyQaNgb8LmuWZbAOcTagBUDVgO/exec';
 
 async function fetchSheet(name) {
-  const res = await fetch(sheetURL(name));
-  return parseGViz(await res.text());
+  const res = await fetch(`${API_URL}?sheet=${encodeURIComponent(name)}`);
+  const data = await res.json();
+  return Array.isArray(data) ? data.filter(row => Object.values(row).some(v => v !== '' && v !== null && v !== undefined)) : [];
 }
 
 function errBox(msg) {
