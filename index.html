@@ -259,27 +259,11 @@
 </div>
 
 <script>
-const params = new URLSearchParams(location.search);
-const SHEET_ID = params.get('sheet');
 const dotColors = ['#FF7043','#4AABE8','#38D9A9','#9775FA','#FFD43B','#F06595'];
 const subjectClass = {'國語':'chinese','數學':'math','英語':'english','自然':'nature','社會':'social'};
 const typeLabel = {coral:'緊急通知',sky:'活動通知',sun:'溫馨提醒',mint:'好消息'};
 
-// 沒有 sheet 參數 → 顯示說明
-if (!SHEET_ID) {
-  document.getElementById('app-body').innerHTML = `
-    <div class="no-sheet">
-      <div style="font-size:48px;margin-bottom:16px">🏫</div>
-      <h2>班級網頁模板</h2>
-      <p>請在網址後方加上 <code>?sheet=試算表ID</code><br>才能顯示班級內容。<br><br>
-      範例：<br><code>index.html?sheet=你的試算表ID</code></p>
-    </div>`;
-  document.getElementById('hdr-school').textContent = '學校名稱';
-  document.getElementById('hdr-class').textContent = '班級網頁模板';
-  document.getElementById('hdr-subtitle').textContent = '請在網址加上 ?sheet=試算表ID';
-} else {
-  init();
-}
+init();
 
 const API_URL = 'https://script.google.com/macros/s/AKfycbyqFh13Rjqmj0mqhyyUccL9kn59Edvl2jDQV4XvEMKIdSg3rH5PSol1oB2IOp0ArHae/exec';
 
