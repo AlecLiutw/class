@@ -281,7 +281,7 @@ if (!SHEET_ID) {
   init();
 }
 
-const API_URL = 'https://script.google.com/a/macros/go.msps.tp.edu.tw/s/AKfycbxucgQjhMm0q8nd2GpxnaiB02NbX3scTDA-bQoCjFhyQaNgb8LmuWZbAOcTagBUDVgO/exec';
+const API_URL = 'https://script.google.com/macros/s/AKfycbyqFh13Rjqmj0mqhyyUccL9kn59Edvl2jDQV4XvEMKIdSg3rH5PSol1oB2IOp0ArHae/exec';
 
 async function fetchSheet(name) {
   const res = await fetch(`${API_URL}?sheet=${encodeURIComponent(name)}`);
