@@ -267,10 +267,20 @@ init();
 
 const API_URL = 'https://script.google.com/macros/s/AKfycbyqFh13Rjqmj0mqhyyUccL9kn59Edvl2jDQV4XvEMKIdSg3rH5PSol1oB2IOp0ArHae/exec';
 
-async function fetchSheet(name) {
-  const res = await fetch(`${API_URL}?sheet=${encodeURIComponent(name)}`);
-  const data = await res.json();
-  return Array.isArray(data) ? data.filter(row => Object.values(row).some(v => v !== '' && v !== null && v !== undefined)) : [];
+function fetchSheet(name) {
+  return new Promise((resolve, reject) => {
+    const cb = 'cb_' + Math.random().toString(36).slice(2);
+    window[cb] = (data) => {
+      delete window[cb];
+      document.getElementById('jsonp-' + cb)?.remove();
+      resolve(Array.isArray(data) ? data.filter(row => Object.values(row).some(v => v !== '')) : []);
+    };
+    const s = document.createElement('script');
+    s.id = 'jsonp-' + cb;
+    s.onerror = () => { delete window[cb]; reject(new Error('載入失敗')); };
+    s.src = `${API_URL}?sheet=${encodeURIComponent(name)}&callback=${cb}`;
+    document.head.appendChild(s);
+  });
 }
 
 function errBox(msg) {
